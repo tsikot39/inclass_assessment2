@@ -20,15 +20,5 @@ pipeline {
                 sh 'npm test -- --watchAll=false'
             }
         }
-        stage('Deploy') {
-            steps {
-                script {
-                    sh '''
-                        npm install netlify-cli
-                        npx netlify deploy --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN
-                    '''
-                }
-            }
-        }
     }
 }
